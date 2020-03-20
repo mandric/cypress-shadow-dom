@@ -42,11 +42,21 @@ describe('Todo List', () => {
       .shadowFirst()
       .shadowFind('button.destroy')
       .shadowTrigger('click');
-
     cy.shadowGet('todo-list')
       .shadowFind('todo-list-item')
       .its('length')
       .should('eq', 1);
+  });
+
+  it('adds list item when typing and pressing enter', () => {
+    cy.shadowGet('todo-list')
+      .shadowFind('todo-form')
+      .shadowFind('input')
+      .shadowType('asparagus {enter}');
+    cy.shadowGet('todo-list')
+      .shadowFind('todo-list-item')
+      .shadowLast()
+      .shadowContains('asparagus');
   });
 
   it('displays correct search query value', () => {
