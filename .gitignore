@@ -65,5 +65,7 @@ dist
 example/.cache
 example/dist
 example/node_module
+example/cypress/videos
+example/cypress/screenshots
 
 .DS_Store
